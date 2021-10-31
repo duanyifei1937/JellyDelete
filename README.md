@@ -39,3 +39,48 @@ S 方
 2. 注意：
    1. 保存一次后的动作，第二次move在上次结果基础上操作；
 
+
+
+### Demo
+``` yaml
+db:
+[B B B V B B B B]
+[V V B B B B B B]
+[B H B B B V B B]
+[H B V H B B B V]
+[B B B B B B B B]
+[B B B B B B B B]
+[V B B B B B B B]
+[V B H B B B H V]
+
+
+delete: 
+[B     V B B B B]
+[V     B B B B B]
+[B   B B B V B B]
+[H   V H B B B V]
+[B   B B B B B B]
+[B   B B B B B B]
+[V   B B B B B B]
+[V   H B B B H V]
+
+下沉：
+[B     V B B B B]
+[V     B B B B B]
+[B   B B B V B B]
+[H   V H B B B V]
+[B   B B B B B B]
+[B   B B B B B B]
+[V   B B B B B B]
+[V   H B B B H V]
+
+补位：
+[B x x V B B B B]
+[V x x B B B B B]
+[B x B B B V B B]
+[H x V H B B B V]
+[B x B B B B B B]
+[B x B B B B B B]
+[V x B B B B B B]
+[V x H B B B H V]
+```

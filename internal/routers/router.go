@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+
 	"jellydelete/internal/controllers"
 )
 
@@ -18,9 +19,7 @@ func NewRouter() *gin.Engine {
 	})
 
 	r.GET("/start-level", controllers.GetInitPattern)
-	return r
-}
+	r.GET("/move", controllers.MovePattern)
 
-func startLevel() string {
-	return "ok"
+	return r
 }

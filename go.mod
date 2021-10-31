@@ -12,6 +12,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/mroth/weightedrand v0.4.1 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible // indirect
+	github.com/schwarmco/go-cartesian-product v0.0.0-20180515110546-d5ee747a6dc9 // indirect
 	github.com/spf13/viper v1.9.0 // indirect
 	github.com/ugorji/go v1.2.6 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect

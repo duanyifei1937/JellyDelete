@@ -5,7 +5,7 @@ import "github.com/jinzhu/gorm"
 type Jelly struct {
 	*Model
 	UUID string `json:"uuid"`
-	Exec int    `json:"execnum"`
+	Exec int    `json:"exec"`
 	Comb string `json:"comb"`
 }
 
