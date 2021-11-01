@@ -1,0 +1,99 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jelly-conf
+data:
+  config.yaml: |
+    Server:
+      RunMode: debug
+      # RunMode: release
+      HttpPort: 8888
+      ReadTimeout: 60
+      WriteTimeout: 60
+    App:
+      LogSavePath: storage/logs
+      LogFileName: app
+      LogFileExt: .log
+      # 根据level定义不同字母出现概率，区分为不同难度
+      Level:
+        1: [20, 3, 3, 1]
+        2: [20, 2, 2, 1]
+        3: [20, 1, 1, 1]
+        # 补位权重，此处固定
+        999: [100, 10, 10, 3]
+    Database:
+      DBType: mysql
+      Username: root
+      Password: 123456
+      Host: mysql.default:3306
+      DBName: jelly
+      TablePrefix: jelly_
+      Charset: utf8
+      ParseTime: True
+      MaxIdleConns: 10
+      MaxOpenConns: 30
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: jellydelete
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jellydelete
+    spec:
+      containers:
+      - name: jellydelete
+        image: jellydelete
+        ports:
+        - containerPort: 8888
+        resources:
+          limits:
+            memory: 170Mi
+          requests:
+            cpu: 100m
+            memory: 70Mi
+        livenessProbe:
+          tcpSocket:
+            port: 8888
+          initialDelaySeconds: 10
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8888
+            scheme: HTTP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 5
+        volumeMounts:
+        - mountPath: /usr/src/app/configs
+          readOnly: true
+          name: jelly-conf
+        - mountPath: /usr/src/app/storage
+          name: log
+      volumes:
+      - name: jelly-conf
+        configMap:
+          name: jelly-conf
+          items:
+            - key: config.yaml
+              path: config.yaml
+      - name: log
+        emptyDir: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellydelete
+spec:
+  type: ClusterIp
+  ports:
+  - port: 8888
+    targetPort: 8888
+  selector:
+    app: jellydelete

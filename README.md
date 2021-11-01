@@ -2,7 +2,7 @@
 > 果冻消除游戏demo
 
 
-## 设计：
+## 设计
 
 
 ### 要素
@@ -34,12 +34,52 @@ S 方
 
 1. 过程：
    1. 选中矩形判断内容，进行值清空；
-   2. 下沉动作，从上到下堆积；
+   2. 下沉动作，从下到上堆积；
    3. 列循环补全；
 2. 注意：
    1. 保存一次后的动作，第二次move在上次结果基础上操作；
 
 
 
-# build
-make all
+## 验证
+
+验证: [demo](./docs/exec_step.md)
+
+
+
+## Usage
+
+### docker
+
+`make all`
+
+
+
+### deploy
+
+> 提供两种部署方式
+
+
+
+#### docker-compose
+
+``` bash
+$ cd ./deploy/docker-compose
+$ docker-compose up
+```
+
+#### k8s
+
+``` bash
+$ cd ./deploy/
+# yaml文件部分未校验，环境限制；
+$ k apply -f .
+```
+
+
+
+## 说明
+
+1. db持久化：docker-compose使用本地目录挂载为db数据目录；k8s使用pv;
+2. 修改ngx部分配置提高并发能力；
+3. 监控引入prometheus, 请求总数、状态码(部分)；

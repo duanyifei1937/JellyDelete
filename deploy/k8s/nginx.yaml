@@ -1,0 +1,112 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jelly-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # # 必须指定后端为https协议
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  rules:
+  - host: jelly.demo.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: jelly-nginx
+          servicePort: 80
+  tls:
+  - secretName: jelly-com-cert-tls
+    hosts:
+      - jelly.demo.com
+---
+# configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jelly-nginx-config
+  labels:
+    name: jelly-nginx-config
+data:
+  nginx.conf: |
+    user  nginx;
+    worker_processes  2;
+    # 与cpu个数匹配；
+    
+    error_log  /var/log/nginx/error.log warn;
+    pid        /var/run/nginx.pid;
+    
+    events {
+        worker_connections   10000;
+    }
+    
+    http {
+        include       /etc/nginx/mime.types;
+        default_type  application/octet-stream;
+    
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for"';
+    
+        access_log  /var/log/nginx/access.log  main;
+    
+        sendfile        on;
+        keepalive_timeout  65;
+        keepalive_requests 10000;
+    
+        server {
+            listen 80;
+            location / {
+              proxy_pass http://jellydelete.default:8888;
+              proxy_http_version 1.1;
+            }
+        }
+    }
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx # mount nginx-conf volumn to /etc/nginx
+          readOnly: true
+          name: nginx-conf
+        - mountPath: /var/log/nginx
+          name: log
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: jelly-nginx-config
+          items:
+            - key: nginx.conf
+              path: nginx.conf
+      - name: log
+        emptyDir: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jelly-nginx
+spec:
+  type: ClusterIp
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: nginx

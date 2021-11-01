@@ -14,7 +14,7 @@ func GetInitPattern(c *gin.Context) {
 	l, err := convert.StrTo(c.Query("level")).MustInt()
 	if err != nil {
 		global.Logger.Errorf("level_arg not int, bad request", err)
-		c.String(400, "level_arg not int")
+		c.String(400, "INVALID PARAMS")
 	}
 
 	// weight: level难度； g:64string； m: uuid; p: 8*8string信息；
@@ -32,7 +32,7 @@ func GetInitPattern(c *gin.Context) {
 
 	result := global.DBEngine.Create(&j)
 	if result.Error != nil {
-		global.Logger.Errorf("write to db faild: ", result.Error)
+		global.Logger.Fatalf("write to db faild: ", result.Error)
 	}
 
 	c.String(200, m+"\n"+p)
@@ -47,7 +47,7 @@ func MovePattern(c *gin.Context) {
 
 	if e1 != nil || e2 != nil || e3 != nil || e4 != nil || !(r0 >= 0 && r0 <= 7) || !(c0 >= 0 && c0 <= 7) || !(r1 >= 0 && r1 <= 7) || !(c1 >= 0 && c1 <= 7) {
 		global.Logger.Errorf("get row or col arg faild.")
-		c.String(400, "request args error.")
+		c.String(400, "INVALID PARAMS")
 	}
 	selectElements := getElementList(r0, c0, r1, c1)
 

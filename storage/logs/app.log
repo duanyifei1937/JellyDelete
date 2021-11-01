@@ -7,3 +7,5 @@
 2021/11/01 10:58:19 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"get row or col arg faild.","time":1635735499561344000}
 2021/11/01 11:23:15 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"fatal","message":"server start error listen tcp :8888: bind: address already in use","time":1635736995356191000}
 2021/11/01 11:23:18 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"fatal","message":"server start error listen tcp :8888: bind: address already in use","time":1635736998785700000}
+2021/11/01 18:16:06 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"level_arg not int, bad request%!(EXTRA *strconv.NumError=strconv.Atoi: parsing \"s\": invalid syntax)","time":1635761766237047000}
+2021/11/01 18:16:08 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"level_arg not int, bad request%!(EXTRA *strconv.NumError=strconv.Atoi: parsing \"s\": invalid syntax)","time":1635761768545088000}
