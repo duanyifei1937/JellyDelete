@@ -26,9 +26,9 @@ func TestPlateToString(t *testing.T) {
 	p := [8][8]string{
 		{"A", "B", "C"},
 	}
-	fmt.Println("--")
-	fmt.Println(plateToString(&p))
-	fmt.Println("--")
+	t.Log("--")
+	t.Log(plateToString(&p))
+	t.Log("--")
 }
 
 func TestElemenSink(t *testing.T) {
@@ -48,4 +48,12 @@ func TestElemenSink(t *testing.T) {
 
 	// fmt.Printf("%s", string(p1[3][1]))
 
+}
+
+
+func TestCompare(t *testing.T) {
+	a := 10
+	if a >= 5 && a <= 20 {
+		fmt.Println("ok")
+	}
 }

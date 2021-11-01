@@ -14,7 +14,7 @@ V 竖
 S 方
 3. 根据两个定位点输出选中框内的元素list;
 4. 选中元素执行不同动作：BHVS;
-5. 元素为""时，进行下沉移动；
+5. 元素为" "时，进行下沉移动；
 6. 可生成随机数填充；
 7. 每次修改后内容转换为string写入db;
 
@@ -41,46 +41,5 @@ S 方
 
 
 
-### Demo
-``` yaml
-db:
-[B B B V B B B B]
-[V V B B B B B B]
-[B H B B B V B B]
-[H B V H B B B V]
-[B B B B B B B B]
-[B B B B B B B B]
-[V B B B B B B B]
-[V B H B B B H V]
-
-
-delete: 
-[B     V B B B B]
-[V     B B B B B]
-[B   B B B V B B]
-[H   V H B B B V]
-[B   B B B B B B]
-[B   B B B B B B]
-[V   B B B B B B]
-[V   H B B B H V]
-
-下沉：
-[B     V B B B B]
-[V     B B B B B]
-[B   B B B V B B]
-[H   V H B B B V]
-[B   B B B B B B]
-[B   B B B B B B]
-[V   B B B B B B]
-[V   H B B B H V]
-
-补位：
-[B x x V B B B B]
-[V x x B B B B B]
-[B x B B B V B B]
-[H x V H B B B V]
-[B x B B B B B B]
-[B x B B B B B B]
-[V x B B B B B B]
-[V x H B B B H V]
-```
+# build
+make all

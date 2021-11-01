@@ -1,0 +1,2 @@
+2021/11/01 07:03:23 {"callers":["/go/src/jellydelete/main.go: 29 main.init.0"],"level":"error","message":"write to db faild: %!(EXTRA *mysql.MySQLError=Error 1146: Table 'jelly.jelly' doesn't exist)","time":1635750203251687600}
+2021/11/01 07:04:21 {"callers":["/go/src/jellydelete/main.go: 29 main.init.0"],"level":"error","message":"sessionID not found: a29597b066a9f72f9f40895e56f36314","time":1635750261894953000}

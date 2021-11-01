@@ -1,0 +1,9 @@
+2021/11/01 10:09:37 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"info","message":"aaahahaha","time":1635732577670746000}
+2021/11/01 10:46:48 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"sessionID not found: 8b89b17a2f502d52cf3378c6cf902d3","time":1635734808098051000}
+2021/11/01 10:46:53 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"sessionID not found: 8b89b17a2f502d52cf3378c6cf902d3","time":1635734813857726000}
+2021/11/01 10:47:09 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"sessionID not found: 8b89b17a2f502d52cf3378c6cf902d3","time":1635734829040556000}
+2021/11/01 10:56:38 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"get row or col arg faild.","time":1635735398366219000}
+2021/11/01 10:58:01 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"get row or col arg faild.","time":1635735481180020000}
+2021/11/01 10:58:19 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"error","message":"get row or col arg faild.","time":1635735499561344000}
+2021/11/01 11:23:15 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"fatal","message":"server start error listen tcp :8888: bind: address already in use","time":1635736995356191000}
+2021/11/01 11:23:18 {"callers":["/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go: 29 main.init.0"],"level":"fatal","message":"server start error listen tcp :8888: bind: address already in use","time":1635736998785700000}

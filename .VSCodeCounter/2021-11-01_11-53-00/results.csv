@@ -1,0 +1,26 @@
+"filename", "language", "Go", "Ignore", "Markdown", "YAML", "XML", "Go Checksum File", "Makefile", "Docker", "log", "SQL", "comment", "blank", "total"
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/.dockerignore", "Ignore", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/Dockerfile", "Docker", 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 1, 3, 15
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 2, 4, 17
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/README.md", "Markdown", 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 15, 45
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/configs/config.yaml", "YAML", 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 3, 1, 29
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/docker-compose.yml", "YAML", 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 1, 4, 33
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/docs/exec_step.md", "Markdown", 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 30, 150
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/docs/sql/init.sql", "SQL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 7
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/global/db.go", "Go", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 10
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/global/global.go", "Go", 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/go.mod", "XML", 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 3, 23
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/go.sum", "Go Checksum File", 0, 0, 0, 0, 0, 737, 0, 0, 0, 0, 0, 1, 738
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/internal/controllers/app.go", "Go", 145, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 29, 197
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/internal/controllers/app_test.go", "Go", 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 11, 59
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/internal/controllers/controller.go", "Go", 78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 19, 107
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/internal/model/model.go", "Go", 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 39
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/internal/model/pattern.go", "Go", 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 15
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/internal/routers/router.go", "Go", 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8, 26
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/main.go", "Go", 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 96
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/pkg/convert/convert.go", "Go", 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 9, 35
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/pkg/logger/logger.go", "Go", 140, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 162
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/pkg/setting/section.go", "Go", 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 8, 45
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/pkg/setting/setting.go", "Go", 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 21
+"/Users/duanyifei/data/git/go/dyf/JellyDelete/storage/logs/app.log", "log", 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 1, 10
+"Total", "-", 633, 3, 150, 53, 20, 737, 11, 11, 9, 7, 56, 206, 1896

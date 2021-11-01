@@ -90,6 +90,6 @@ func main() {
 	}
 	err := s.ListenAndServe()
 	if err != nil {
-		log.Fatalf("server start error %v", err)
+		global.Logger.Fatalf("server start error %v", err)
 	}
 }

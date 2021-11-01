@@ -19,7 +19,7 @@ Database:
   DBType: mysql
   Username: root
   Password: 123456
-  Host: localhost:3306
+  Host: db:3306
   DBName: jelly
   TablePrefix: jelly_
   Charset: utf8

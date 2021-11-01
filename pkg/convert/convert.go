@@ -13,9 +13,14 @@ func (s StrTo) Int() (int, error) {
 	return v, err
 }
 
-func (s StrTo) MustInt() int {
-	v, _ := s.Int()
-	return v
+// func (s StrTo) MustInt() int {
+// 	v, _ := s.Int()
+// 	return v
+// }
+
+func (s StrTo) MustInt() (int, error) {
+	v, err := s.Int()
+	return v, err
 }
 
 func (s StrTo) UInt32() (uint32, error) {

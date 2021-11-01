@@ -143,16 +143,6 @@ func moveSElement(p *[8][8]string, e []int) {
 // nil元素下沉
 func elementSink(p *[8][8]string) *[8][8]string {
 	var np [8][8]string
-	// for i := 0; i < 8; i++ {
-	// 	var j1 int = 7
-	// 	for j := 7; j >= 0; j-- {
-	// 		if p[i][j] != " " {
-	// 			np[i][j1] = p[i][j]
-	// 			j1--
-	// 		}
-	// 	}
-	// }
-
 	// 移动过程从左下角开始，先列，后行
 	for j := 0; j < 8; j++ {
 		i1 := 7

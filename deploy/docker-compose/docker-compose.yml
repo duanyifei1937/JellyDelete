@@ -1,0 +1,66 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:5.7
+    command:
+    - --default-authentication-plugin=mysql_native_password
+    - --collation-server=utf8mb4_unicode_ci
+    - --character-set-server=utf8mb4
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'jelly'
+      #MYSQL_USER: 'root'
+      MYSQL_ROOT_PASSWORD: '123456'
+    ports:
+    - 3306:3306
+    expose:
+    - 3306
+    volumes:
+    # 数据目录本地保存
+    - ./my-db:/var/lib/mysql
+    # sql init
+    - ./sql-init/:/docker-entrypoint-initdb.d/
+    networks:
+    - jelly
+
+  jelly-server:
+    image: jellydelete:v0.1
+    expose:
+    - 8888
+    volumes:
+    - ./storage/:/usr/src/app/storage/
+    - ./configs/config.yaml:/usr/src/app/configs/config.yaml
+    depends_on:
+    - db
+    restart: always
+    networks:
+    - jelly
+  
+  nginx:
+    image: nginx:latest
+    ports:
+    - 80:80
+    deploy:
+      resources:
+        limits:
+          cpus: '3'
+          memory: 200M
+        reservations:
+          cpus: '2'
+          memory: 100M
+    ulimits:
+      nofile:
+        soft: "65536"
+        hard: "65536"
+    depends_on:
+    - jelly-server
+    restart: always
+    volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+    - jelly
+
+networks:
+  jelly:
+    driver: bridge
