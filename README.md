@@ -65,7 +65,8 @@ S 方
 
 ``` bash
 $ cd ./deploy/docker-compose
-$ docker-compose up
+$ docker-compose up 
+$ docker-compose scale jelly-server=3
 ```
 
 #### k8s
