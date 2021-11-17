@@ -233,11 +233,12 @@ func genRandomString(weight []uint) string {
 // 开始：两点定位的list;
 func getAllElement(l [][]int, plate *[8][8]string) (r [][]int) {
 	for _, e := range l {
-
 		switch plate[e[0]][e[1]] {
 		case "B":
+			SetNilElement(e[0], e[1], plate)
 			r = append(r, []int{e[0], e[1]})
 		case "H":
+			SetNilElement(e[0], e[1], plate)
 			// ll 临时变量
 			var ll [][]int
 			for i := 0; i < 8; i++ {
@@ -245,12 +246,14 @@ func getAllElement(l [][]int, plate *[8][8]string) (r [][]int) {
 			}
 			getAllElement(ll, plate)
 		case "V":
+			SetNilElement(e[0], e[1], plate)
 			var ll [][]int
 			for i := 0; i < 8; i++ {
 				ll = append(ll, []int{i, e[1]})
 			}
 			getAllElement(ll, plate)
 		case "S":
+			SetNilElement(e[0], e[1], plate)
 			var ll [][]int
 			ll = append(ll, getSRollElement(plate, []int{e[0], e[1]})...)
 			getAllElement(ll, plate)
@@ -258,6 +261,11 @@ func getAllElement(l [][]int, plate *[8][8]string) (r [][]int) {
 	}
 
 	return DelErWeiArrayDupl(r)
+}
+
+// 元素置为null.
+func SetNilElement(r, c int, p *[8][8]string) {
+	p[r][c] = " "
 }
 
 // 二维元素去重
