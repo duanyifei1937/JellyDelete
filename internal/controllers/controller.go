@@ -49,7 +49,6 @@ func MovePattern(c *gin.Context) {
 		global.Logger.Errorf("get row or col arg faild.")
 		c.String(400, "INVALID PARAMS")
 	}
-	selectElements := getElementList(r0, c0, r1, c1)
 
 	j := model.Jelly{
 		UUID: uuid,
@@ -66,21 +65,31 @@ func MovePattern(c *gin.Context) {
 	// 查询到图案转换为8*8 plate
 	plate := stringToPlate(j.Comb)
 
-	// 对选中框内的元素判断、移除
-	for e := range selectElements {
-		er := e[0].(int)
-		ec := e[1].(int)
-		switch plate[er][ec] {
-		case "B":
-			moveBElement(plate, []int{er, ec})
-		case "H":
-			moveHElement(plate, []int{er, ec})
-		case "V":
-			moveVElement(plate, []int{er, ec})
-		case "S":
-			moveSElement(plate, []int{er, ec})
-		}
+	// 两点定位框内的所有元素
+	selectElements := getInitElementList(r0, c0, r1, c1)
+	// 递归，找到所有B类型元素
+	allBElement := getAllElement(selectElements, plate)
+	// 滚动移除所有B元素
+	for _, b := range allBElement {
+		moveBElement(plate, b)
 	}
+
+	// -- 此处题目理解错误，需要考虑被炸弹炸过的元素 --
+	// // 对选中框内的元素判断、移除
+	// for _, e := range selectElements {
+	// 	er := e[0]
+	// 	ec := e[1]
+	// 	switch plate[er][ec] {
+	// 	case "B":
+	// 		moveBElement(plate, []int{er, ec})
+	// 	case "H":
+	// 		moveHElement(plate, []int{er, ec})
+	// 	case "V":
+	// 		moveVElement(plate, []int{er, ec})
+	// 	case "S":
+	// 		moveSElement(plate, []int{er, ec})
+	// 	}
+	// }
 
 	// space element 下沉、补位
 	nplate := elementFillIn(elementSink(plate))

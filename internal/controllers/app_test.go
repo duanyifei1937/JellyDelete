@@ -5,16 +5,16 @@ import (
 	"testing"
 )
 
-func TestGetElementList(t *testing.T) {
-	el := getElementList(0, 1, 1, 2)
-	for e := range el {
-		t.Log(e[0], e[1])
-		t.Logf("%T", e[0])
-		// t.Log(e[1])
-		t.Log("--")
-	}
-	fmt.Printf("%T", el)
-}
+// func TestGetElementList(t *testing.T) {
+// 	el := getElementList(0, 1, 1, 2)
+// 	for e := range el {
+// 		t.Log(e[0], e[1])
+// 		t.Logf("%T", e[0])
+// 		// t.Log(e[1])
+// 		t.Log("--")
+// 	}
+// 	fmt.Printf("%T", el)
+// }
 
 func TestStringToPlate(t *testing.T) {
 	s := "BBBVBBBBVVBBBBBBBHBBBVBBHBVHBBBVBBBBBBBBBBBBBBBBVBBBBBBBVBHBBBHV"
